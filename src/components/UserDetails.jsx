@@ -1,11 +1,17 @@
 import React, { useState, useRef } from "react";
 import Button from "./Button";
 import { FaCloudArrowDown } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export default function UserDetails() {
   const [imageUrl, setImageUrl] = useState("");
+  const navigate=useNavigate()
   const fileInputRef = useRef(null);
 
+  const handleNextClick = (e) => {
+    e.preventDefault()
+    navigate("/ticket");
+  };
   const handleUpload = (files) => {
     const file = files[0];
     const formData = new FormData();
@@ -30,18 +36,18 @@ export default function UserDetails() {
   };
 
   return (
-    <div className="w-[80vh] max-h-[30rem] bg-outerBox border border-gray-200 rounded-lg shadow-sm">
-      <div className="px-5 pb-5">
+    <div className="w-[80vh] max-h-screen bg-outerBox border border-[#0E464F] rounded-lg shadow-sm">
+      <div className="px-5 mb-4">
         <div className="flex justify-between flex-col items-center mt-5">
-          <div className="flex justify-between">
+          <div className="flex justify-between w-full">
             <h5 className="text-xl font-light tracking-tight text-gray-900 dark:text-white">
               Attendee Details
             </h5>
-            <span className="text-white">Step 2/3</span>
+            <p className="text-white">Step 2/3</p>
           </div>
           <div className="divide-x-4" />
 
-          <div className="w-full max-w-[27rem] p-4 bg-[#08252B] border border-[#0E464F] rounded-lg shadow-sm sm:p-6 flex justify-center flex-col space-y-6">
+          <div className="w-full max-w-[27rem]  p-4 bg-[#08252B] border border-[#0E464F] rounded-lg shadow-sm  flex justify-center flex-col space-y-6">
             <div className="max-w-sm bg-[#052228] border border-[#07373F] rounded-lg shadow-sm">
               <p className="text-white text-xs font-light ml-4 mt-4">
                 Upload Profile Photo
@@ -128,8 +134,8 @@ export default function UserDetails() {
               </div>
 
               <div className="flex space-x-3">
-                <Button title="Back" secondary={true} />
-                <Button title="Next" />
+                <Button  title="Back" secondary={true} />
+                <Button title="Next" onClick={handleNextClick} />
               </div>
             </form>
           </div>
