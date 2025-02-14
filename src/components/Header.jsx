@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Button from "./Button";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Header() {
   return (
@@ -24,16 +26,16 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="">
+                <Link to="/about" className="">
                   About Project
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div>
             <Link to="/ticket">
-              <button>My Tickets</button>
             </Link>
+              <Button header={true} title='My Tickets → ' />
           </div>
         </div>
       </nav>

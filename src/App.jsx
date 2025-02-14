@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import TicketSelect from "./components/TicketSelect";
-import UserDetails from "./components/UserDetails";
-import Ticket from "./components/Ticket";
-import AppLayout from "./components/AppLayout";
-
+import TicketSelect from "./pages/TicketSelect";
+import UserDetails from "./pages/UserDetails";
+import Ticket from "./pages/Ticket";
+import AppLayout from "./pages/AppLayout";
+import About from "./pages/About";
 
 export default function App() {
   const router = createBrowserRouter(
@@ -24,7 +24,11 @@ export default function App() {
           {
             path: "/ticket",
             element: <Ticket />,
-          }
+          },
+          {
+            path: "/about",
+            element: <About />,
+          },
         ],
       },
     ],
@@ -32,8 +36,7 @@ export default function App() {
       future: {
         v7_skipActionErrorRevalidation: true,
       },
-    },
+    }
   );
-  return  <RouterProvider router={router} />;
-
+  return <RouterProvider router={router} />;
 }
